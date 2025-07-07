@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>CV Builder - MaxStudyApp</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <header>
+    <h1>Build Your CV</h1>
+    <p>Create a professional CV step-by-step.</p>
+    <nav>
+      <a href="index.html" class="btn">🏠 Home</a>
+      <a href="jobs.html" class="btn">💼 Jobs</a>
+      <a href="study-tips.html" class="btn">📚 Study Tips</a>
+    </nav>
+  </header>
+
+  <main>
+    <section class="cv-builder-form">
+      <form id="cv-form">
+        <label for="full-name">Full Name:</label><br />
+        <input type="text" id="full-name" name="full-name" required /><br /><br />
+
+        <label for="email">Email:</label><br />
+        <input type="email" id="email" name="email" required /><br /><br />
+
+        <label for="phone">Phone Number:</label><br />
+        <input type="tel" id="phone" name="phone" /><br /><br />
+
+        <label for="summary">Professional Summary:</label><br />
+        <textarea id="summary" name="summary" rows="4" placeholder="Brief summary about you..."></textarea><br /><br />
+
+        <label for="experience">Work Experience:</label><br />
+        <textarea id="experience" name="experience" rows="6" placeholder="List your work experience..."></textarea><br /><br />
+
+        <label for="education">Education:</label><br />
+        <textarea id="education" name="education" rows="4" placeholder="List your education..."></textarea><br /><br />
+
+        <button type="submit" class="btn">Generate CV</button>
+      </form>
+    </section>
+
+    <section id="cv-output" style="display:none; margin-top:20px; padding:10px; border:1px solid #ccc;"></section>
+  </main>
+
+  <footer>
+    <p>MaxStudyApp © 2025 | Made with ❤️ by Maxwell</p>
+  </footer>
+
+  <script>
+    const form = document.getElementById('cv-form');
+    const output = document.getElementById('cv-output');
+
+    form.addEventListener('submit', function(event) {
+      event.preventDefault();
+
+      const fullName = form['full-name'].value;
+      const email = form.email.value;
+      const phone = form.phone.value;
+      const summary = form.summary.value;
+      const experience = form.experience.value;
+      const education = form.education.value;
+
+      output.style.display = 'block';
+      output.innerHTML = `
+        <h2>${fullName}</h2>
+        <p><strong>Email:</strong> ${email}</p>
+        <p><strong>Phone:</strong> ${phone}</p>
+        <h3>Professional Summary</h3>
+        <p>${summary}</p>
+        <h3>Work Experience</h3>
+        <p>${experience}</p>
+        <h3>Education</h3>
+        <p>${education}</p>
+      `;
+    });
+  </script>
+</body>
+</html>

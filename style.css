@@ -1,0 +1,185 @@
+/* General Reset */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background: #eaf6ff;
+  color: #333;
+  line-height: 1.6;
+  padding: 20px;
+  text-align: center;
+}
+
+/* Header */
+header {
+  margin-bottom: 30px;
+}
+
+header h1 {
+  font-size: 2.5rem;
+  color: #004080;
+}
+
+header p {
+  font-size: 1.2rem;
+  color: #008000;
+  margin-top: 10px;
+}
+
+/* Buttons */
+.buttons {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  max-width: 400px;
+  margin: 0 auto 40px;
+}
+
+.btn {
+  display: block;
+  background-color: #3a86ff;
+  color: white;
+  padding: 14px;
+  font-size: 1.1rem;
+  border: none;
+  border-radius: 12px;
+  text-decoration: none;
+  transition: background-color 0.3s ease;
+}
+
+.btn:hover {
+  background-color: #265dd1;
+}
+
+/* Quote Section */
+#quote {
+  background-color: #f1faff;
+  border: 1px solid #cce7ff;
+  border-radius: 12px;
+  padding: 20px;
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+#quote h2 {
+  margin-bottom: 10px;
+  color: #004080;
+}
+
+#quote-text {
+  font-style: italic;
+  color: #555;
+}
+
+/* Footer */
+footer {
+  margin-top: 40px;
+  font-size: 0.9rem;
+  color: #555;
+}
+
+.job-card {
+  border: 1px solid #ccc;
+  border-radius: 10px;
+  padding: 12px;
+  margin-top: 10px;
+  background-color: #f9f9f9;
+}
+
+.job-card h3 {
+  margin-bottom: 5px;
+}
+
+#job-search {
+  padding: 8px;
+  width: 60%;
+  max-width: 400px;
+}
+
+@media (max-width: 600px) {
+  .buttons {
+    width: 100%;
+    padding: 0 10px;
+  }
+
+  #job-search {
+    width: 90%;
+  }
+
+  #quote {
+    width: 90%;
+  }
+}
+
+.share-buttons {
+  margin-top: 15px;
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+
+.share-buttons p {
+  flex-basis: 100%;
+  margin-bottom: 5px;
+  color: #444;
+  font-weight: bold;
+}
+
+.btn.share {
+  padding: 10px 14px;
+  font-size: 0.95rem;
+  border-radius: 8px;
+  cursor: pointer;
+  text-decoration: none;
+}
+
+.share.whatsapp {
+  background-color: #25D366;
+  color: white;
+}
+
+.share.twitter {
+  background-color: #1DA1F2;
+  color: white;
+}
+
+.share.facebook {
+  background-color: #1877F2;
+  color: white;
+}
+
+.btn.share:hover {
+  opacity: 0.85;
+}
+
+.tips {
+  max-width: 700px;
+  margin: 30px auto;
+  padding: 0 20px;
+  text-align: left;
+}
+
+.tip {
+  background: #f1faff;
+  border-radius: 12px;
+  padding: 20px;
+  margin-bottom: 20px;
+  border: 1px solid #cce7ff;
+  box-shadow: 0 0 5px rgba(0, 0, 50, 0.05);
+}
+
+.tip h2 {
+  color: #004080;
+  margin-bottom: 8px;
+}
+
+.tip p {
+  font-size: 1rem;
+  color: #333;
+  line-height: 1.5;
+}

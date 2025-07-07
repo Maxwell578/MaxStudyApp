@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>View Feedback - MaxStudyApp</title>
+  <link rel="stylesheet" href="style.css" />
+  <style>
+    main {
+      max-width: 700px;
+      margin: 30px auto;
+      padding: 0 20px;
+      text-align: left;
+    }
+
+    .feedback-entry {
+      background: #f9f9f9;
+      border-radius: 12px;
+      padding: 15px 20px;
+      margin-bottom: 15px;
+      border: 1px solid #ccc;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+    }
+
+    .feedback-entry h3 {
+      margin: 0 0 5px 0;
+      color: #004080;
+    }
+
+    .feedback-entry p {
+      margin: 0;
+      font-style: italic;
+      color: #555;
+    }
+
+    nav {
+      margin-bottom: 25px;
+      text-align: center;
+    }
+
+    nav .btn {
+      margin: 0 8px;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>User Feedback</h1>
+    <p>See what others are saying about MaxStudyApp!</p>
+    <nav>
+      <a href="index.html" class="btn">🏠 Home</a>
+      <a href="feedback.html" class="btn">✉️ Submit Feedback</a>
+      <a href="jobs.html" class="btn">💼 Jobs</a>
+    </nav>
+  </header>
+
+  <main id="feedback-list">
+    <!-- Feedback entries will appear here -->
+  </main>
+
+  <footer>
+    <p>MaxStudyApp © 2025 | Made with ❤️ by Maxwell</p>
+  </footer>
+
+  <script>
+    // Example static feedback data — replace with dynamic data later if desired
+    const feedbacks = [
+      {
+        name: "Thandi",
+        message: "This app helped me organize my study time better. Thank you!"
+      },
+      {
+        name: "Sipho",
+        message: "Love the job board feature. Found my first remote job through it!"
+      },
+      {
+        name: "Naledi",
+        message: "Great motivational quotes, really keep me going on tough days."
+      }
+    ];
+
+    const feedbackList = document.getElementById('feedback-list');
+
+    function renderFeedbacks() {
+      feedbackList.innerHTML = "";
+
+      feedbacks.forEach(fb => {
+        const fbDiv = document.createElement('div');
+        fbDiv.className = 'feedback-entry';
+        fbDiv.innerHTML = `
+          <h3>${fb.name}</h3>
+          <p>"${fb.message}"</p>
+        `;
+        feedbackList.appendChild(fbDiv);
+      });
+    }
+
+    document.addEventListener('DOMContentLoaded', renderFeedbacks);
+  </script>
+</body>
+</html>

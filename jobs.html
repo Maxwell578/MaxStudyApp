@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Job Board - MaxStudyApp</title>
+  <link rel="stylesheet" href="style.css" />
+  <style>
+    /* Job Listings Container */
+    .job-listings {
+      max-width: 700px;
+      margin: 20px auto;
+      padding: 0 15px;
+    }
+
+    /* Job Card */
+    .job-card {
+      background-color: #f9f9f9;
+      border: 1px solid #ccc;
+      border-radius: 12px;
+      padding: 15px;
+      margin-bottom: 15px;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+      text-align: left;
+    }
+
+    .job-card h3 {
+      margin-bottom: 8px;
+      color: #004080;
+    }
+
+    .job-card p {
+      margin: 4px 0;
+      font-size: 1rem;
+      color: #333;
+    }
+
+    .job-card .btn {
+      margin-top: 10px;
+      display: inline-block;
+      background-color: #3a86ff;
+      color: white;
+      padding: 8px 12px;
+      border-radius: 8px;
+      text-decoration: none;
+      font-weight: 600;
+      transition: background-color 0.3s ease;
+    }
+
+    .job-card .btn:hover {
+      background-color: #265dd1;
+    }
+
+    /* Search Input */
+    #job-search {
+      display: block;
+      width: 80%;
+      max-width: 400px;
+      margin: 20px auto;
+      padding: 10px 15px;
+      border-radius: 12px;
+      border: 1px solid #ccc;
+      font-size: 1rem;
+      box-sizing: border-box;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>Job Board</h1>
+    <p>Find your next opportunity here!</p>
+    <nav>
+      <a href="index.html" class="btn">🏠 Home</a>
+      <a href="study-tips.html" class="btn">📚 Study Tips</a>
+      <a href="applications.html" class="btn">📨 Government Applications</a>
+    </nav>
+  </header>
+
+  <main>
+    <input
+      type="text"
+      id="job-search"
+      placeholder="Search jobs by title or company..."
+    />
+
+    <section id="job-listings" class="job-listings">
+      <!-- Job cards will be inserted here -->
+    </section>
+  </main>
+
+  <footer>
+    <p>MaxStudyApp © 2025 | Made with ❤️ by Maxwell</p>
+  </footer>
+
+  <script>
+    const jobs = [
+      {
+        title: "Junior Web Developer",
+        company: "Tech Solutions",
+        location: "Remote",
+        link: "https://example.com/job/junior-web-developer"
+      },
+      {
+        title: "Social Media Manager",
+        company: "Social Buzz",
+        location: "Cape Town, South Africa",
+        link: "https://example.com/job/social-media-manager"
+      },
+      {
+        title: "Data Entry Clerk",
+        company: "OfficeWorks",
+        location: "Johannesburg, South Africa",
+        link: "https://example.com/job/data-entry-clerk"
+      },
+      {
+        title: "Customer Support Specialist",
+        company: "HelpDesk Co.",
+        location: "Remote",
+        link: "https://example.com/job/customer-support"
+      }
+    ];
+
+    const jobListingsEl = document.getElementById("job-listings");
+    const searchInput = document.getElementById("job-search");
+
+    // Function to render jobs
+    function renderJobs(jobsToRender) {
+      jobListingsEl.innerHTML = "";
+
+      if (jobsToRender.length === 0) {
+        jobListingsEl.innerHTML = "<p>No jobs found. Try different keywords.</p>";
+        return;
+      }
+
+      jobsToRender.forEach(job => {
+        const jobCard = document.createElement("div");
+        jobCard.className = "job-card";
+
+        jobCard.innerHTML = `
+          <h3>${job.title}</h3>
+          <p><strong>Company:</strong> ${job.company}</p>
+          <p><strong>Location:</strong> ${job.location}</p>
+          <a href="${job.link}" target="_blank" class="btn">Apply Now</a>
+        `;
+
+        jobListingsEl.appendChild(jobCard);
+      });
+    }
+
+    // Filter jobs by search input
+    function filterJobs() {
+      const query = searchInput.value.toLowerCase();
+      const filteredJobs = jobs.filter(job =>
+        job.title.toLowerCase().includes(query) ||
+        job.company.toLowerCase().includes(query)
+      );
+      renderJobs(filteredJobs);
+    }
+
+    // Initial render
+    renderJobs(jobs);
+
+    // Event listener for search input
+    searchInput.addEventListener("input", filterJobs);
+  </script>
+</body>
+</html>

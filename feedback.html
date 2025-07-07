@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Feedback - MaxStudyApp</title>
+  <link rel="stylesheet" href="style.css" />
+  <style>
+    main {
+      max-width: 600px;
+      margin: 30px auto;
+      padding: 0 20px;
+      text-align: left;
+    }
+
+    form {
+      display: flex;
+      flex-direction: column;
+      gap: 15px;
+    }
+
+    label {
+      font-weight: 600;
+      color: #004080;
+    }
+
+    input, textarea {
+      padding: 10px;
+      border-radius: 10px;
+      border: 1px solid #ccc;
+      font-size: 1rem;
+      font-family: inherit;
+      resize: vertical;
+    }
+
+    button {
+      width: 150px;
+      padding: 12px;
+      border: none;
+      background-color: #3a86ff;
+      color: white;
+      border-radius: 12px;
+      font-size: 1.1rem;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+    }
+
+    button:hover {
+      background-color: #265dd1;
+    }
+
+    .thank-you {
+      margin-top: 20px;
+      padding: 15px;
+      background-color: #d4edda;
+      border: 1px solid #c3e6cb;
+      color: #155724;
+      border-radius: 10px;
+      display: none;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>Feedback</h1>
+    <p>We value your thoughts. Please send us your feedback!</p>
+    <nav>
+      <a href="index.html" class="btn">🏠 Home</a>
+      <a href="study-tips.html" class="btn">📚 Study Tips</a>
+      <a href="jobs.html" class="btn">💼 Jobs</a>
+    </nav>
+  </header>
+
+  <main>
+    <form id="feedback-form" novalidate>
+      <label for="name">Name*</label>
+      <input type="text" id="name" name="name" required />
+
+      <label for="email">Email*</label>
+      <input type="email" id="email" name="email" required />
+
+      <label for="message">Message*</label>
+      <textarea id="message" name="message" rows="5" required></textarea>
+
+      <button type="submit">Send Feedback</button>
+    </form>
+
+    <div class="thank-you" id="thank-you-message">
+      <p>Thank you for your feedback! We appreciate you taking the time.</p>
+    </div>
+  </main>
+
+  <footer>
+    <p>MaxStudyApp © 2025 | Made with ❤️ by Maxwell</p>
+  </footer>
+
+  <script>
+    const form = document.getElementById('feedback-form');
+    const thankYouMessage = document.getElementById('thank-you-message');
+
+    form.addEventListener('submit', function(event) {
+      event.preventDefault();
+
+      if (!form.checkValidity()) {
+        // If form is invalid, show browser validation
+        form.reportValidity();
+        return;
+      }
+
+      // Simulate form submission delay
+      setTimeout(() => {
+        form.reset();
+        thankYouMessage.style.display = 'block';
+      }, 500);
+    });
+  </script>
+</body>
+</html>
